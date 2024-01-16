@@ -125,253 +125,293 @@ class MainActivity : ComponentActivity() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surface,
-                    ),
+                CoverCard(darkTextColor, darkGreyTextColor, mintColor, orangeTextColor)
 
-                    modifier = Modifier
-                        .padding(start = 16.dp, top = 16.dp, end = 16.dp)
-                        .width(382.dp)
-                        .height(350.dp)
+                ReferralCard(strokeColor, whiteColor, refField, darkGreyTextColor)
 
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .padding(10.dp)
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.cover),
-                            contentDescription = "Cover Card"
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Column(
-                            modifier = Modifier
-                                .padding(8.dp)
-                        ) {
-                            Text(
-                                text = "বান্ডেল প্যাকেজ",
-                                fontSize = 13.sp,
-                                lineHeight = 19.sp,
-                                fontWeight = FontWeight(700),
-                                color = darkTextColor,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(4.dp)
-                            )
-                            Row {
-                                Text(
-                                    text = "৳৪৮০০",
-                                    fontSize = 14.sp,
-                                    fontWeight = FontWeight(500),
-                                    color = darkGreyTextColor,
-                                    style = TextStyle(textDecoration = TextDecoration.LineThrough)
-                                )
-                                Spacer(
-                                    modifier = Modifier
-                                        .padding(4.dp)
-                                )
-                                Text(
-                                    text = "৳২৯৭৫ (৩৮% ছাড়ে)",
-                                    fontSize = 16.sp,
-                                    lineHeight = 20.sp,
-                                    fontWeight = FontWeight(700),
-                                    color = mintColor,
-                                )
-                            }
-                            Spacer(
-                                modifier = Modifier
-                                    .padding(4.dp)
-                            )
-                            Text(
-                                text = "১৪-২৬ আগস্ট ৪৮% ছাড়ে মাত্র ৳২৫০০",
-                                color = orangeTextColor,
-                                fontSize = 11.sp,
-                                fontWeight = FontWeight(500),
-                            )
-                        }
-                    }
-                }
+                TotalCost(darkGreyTextColor, mintColor, strokeColor, darkTextColor)
 
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surface,
-                    ),
-                    modifier = Modifier
-                        .width(382.dp)
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.Start),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .padding(start = 10.dp),
-                            painter = painterResource(id = R.drawable.reficon),
-                            contentDescription = "image description",
-                            contentScale = ContentScale.None
-                        )
-
-                        OutlinedTextField(
-                            colors = TextFieldDefaults.outlinedTextFieldColors(
-                                focusedBorderColor = strokeColor,
-                                unfocusedBorderColor = strokeColor,
-                            ),
-                            shape = RoundedCornerShape(12.dp),
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(bottom = 10.dp, end = 10.dp)
-                                .background(color = whiteColor),
-                            value = refField,
-                            onValueChange = { refField = it },
-                            label = {
-                                Text(
-                                    "Have a referral code?",
-                                    fontSize = 14.sp,
-                                    fontWeight = FontWeight(400),
-                                    color = darkGreyTextColor,
-                                )
-                            }
-                        )
-
-                    }
-
-                }
-
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surface,
-                    ),
-                    modifier = Modifier
-                        .width(382.dp)
-                ) {
-
-                    Column(
-                        modifier = Modifier
-                            .padding(16.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = "সাবস্ক্রিপশন ফি",
-                                color = darkGreyTextColor,
-                                lineHeight = 19.sp,
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight(700),
-                            )
-                            Text(
-                                text = "৳ ৪৮০০",
-                                color = darkGreyTextColor,
-                                lineHeight = 19.sp,
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight(700),
-                            )
-                        }
-
-                        Spacer(
-                            modifier = Modifier
-                                .height(12.dp)
-                        )
-
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = "অফার ডিসকাউন্ট (৪৮%)",
-                                fontSize = 13.sp,
-                                lineHeight = 19.sp,
-                                fontWeight = FontWeight(700),
-                                color = mintColor,
-                            )
-                            Text(
-                                text = "৳ ২৩০০",
-                                fontSize = 13.sp,
-                                lineHeight = 19.sp,
-                                fontWeight = FontWeight(700),
-                                color = mintColor,
-                            )
-
-
-                        }
-
-                        Spacer(
-                            modifier = Modifier
-                                .height(12.dp)
-                        )
-
-                        Box(
-                            contentAlignment = Alignment.Center,
-                            modifier = Modifier
-                                .width(350.dp)
-                                .height(1.dp)
-                                .background(color = strokeColor),
-                        ) {
-
-                        }
-
-                        Spacer(
-                            modifier = Modifier
-                                .height(12.dp)
-                        )
-
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = "টোটাল",
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight(700),
-                                color = darkTextColor,
-                            )
-                            Text(
-                                text = "৳২৫০০",
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight(700),
-                                color = darkTextColor,
-                            )
-                        }
-                    }
-
-                }
-
-                Button(
-                    shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = mintColor),
-                    modifier = Modifier
-                        .width(382.dp)
-                        .height(56.dp),
-                    onClick = { /*TODO*/ }
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(
-                            8.dp,
-                            Alignment.CenterHorizontally
-                        ),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Text(
-                            text = "এগিয়ে যাও",
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight(700),
-                            color = whiteColor,
-                            textAlign = TextAlign.Center,
-                        )
-                    }
-
-                }
+                ContinueButton(mintColor, whiteColor)
 
             }
+        }
+    }
+
+    @Composable
+    private fun CoverCard(
+        darkTextColor: Color,
+        darkGreyTextColor: Color,
+        mintColor: Color,
+        orangeTextColor: Color
+    ) {
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface,
+            ),
+
+            modifier = Modifier
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp)
+                .width(382.dp)
+                .height(350.dp)
+
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(10.dp)
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.cover),
+                    contentDescription = "Cover Card"
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Column(
+                    modifier = Modifier
+                        .padding(8.dp)
+                ) {
+                    Text(
+                        text = "বান্ডেল প্যাকেজ",
+                        fontSize = 13.sp,
+                        lineHeight = 19.sp,
+                        fontWeight = FontWeight(700),
+                        color = darkTextColor,
+                    )
+                    Spacer(
+                        modifier = Modifier
+                            .height(4.dp)
+                    )
+                    Row {
+                        Text(
+                            text = "৳৪৮০০",
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight(500),
+                            color = darkGreyTextColor,
+                            style = TextStyle(textDecoration = TextDecoration.LineThrough)
+                        )
+                        Spacer(
+                            modifier = Modifier
+                                .padding(4.dp)
+                        )
+                        Text(
+                            text = "৳২৯৭৫ (৩৮% ছাড়ে)",
+                            fontSize = 16.sp,
+                            lineHeight = 20.sp,
+                            fontWeight = FontWeight(700),
+                            color = mintColor,
+                        )
+                    }
+                    Spacer(
+                        modifier = Modifier
+                            .padding(4.dp)
+                    )
+                    Text(
+                        text = "১৪-২৬ আগস্ট ৪৮% ছাড়ে মাত্র ৳২৫০০",
+                        color = orangeTextColor,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight(500),
+                    )
+                }
+            }
+        }
+    }
+
+    @Composable
+    @OptIn(ExperimentalMaterial3Api::class)
+    private fun ReferralCard(
+        strokeColor: Color,
+        whiteColor: Color,
+        refField: String,
+        darkGreyTextColor: Color
+    ) {
+        var refField1 = refField
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface,
+            ),
+            modifier = Modifier
+                .width(382.dp)
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.Start),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Image(
+                    modifier = Modifier
+                        .padding(start = 10.dp),
+                    painter = painterResource(id = R.drawable.reficon),
+                    contentDescription = "image description",
+                    contentScale = ContentScale.None
+                )
+
+                OutlinedTextField(
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        focusedBorderColor = strokeColor,
+                        unfocusedBorderColor = strokeColor,
+                    ),
+                    shape = RoundedCornerShape(12.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 10.dp, end = 10.dp)
+                        .background(color = whiteColor),
+                    value = refField1,
+                    onValueChange = { refField1 = it },
+                    label = {
+                        Text(
+                            "Have a referral code?",
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight(400),
+                            color = darkGreyTextColor,
+                        )
+                    }
+                )
+
+            }
+
+        }
+    }
+
+    @Composable
+    private fun TotalCost(
+        darkGreyTextColor: Color,
+        mintColor: Color,
+        strokeColor: Color,
+        darkTextColor: Color
+    ) {
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface,
+            ),
+            modifier = Modifier
+                .width(382.dp)
+        ) {
+
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "সাবস্ক্রিপশন ফি",
+                        color = darkGreyTextColor,
+                        lineHeight = 19.sp,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight(700),
+                    )
+                    Text(
+                        text = "৳ ৪৮০০",
+                        color = darkGreyTextColor,
+                        lineHeight = 19.sp,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight(700),
+                    )
+                }
+
+                Spacer(
+                    modifier = Modifier
+                        .height(12.dp)
+                )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "অফার ডিসকাউন্ট (৪৮%)",
+                        fontSize = 13.sp,
+                        lineHeight = 19.sp,
+                        fontWeight = FontWeight(700),
+                        color = mintColor,
+                    )
+                    Text(
+                        text = "৳ ২৩০০",
+                        fontSize = 13.sp,
+                        lineHeight = 19.sp,
+                        fontWeight = FontWeight(700),
+                        color = mintColor,
+                    )
+
+
+                }
+
+                Spacer(
+                    modifier = Modifier
+                        .height(12.dp)
+                )
+
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .width(350.dp)
+                        .height(1.dp)
+                        .background(color = strokeColor),
+                ) {
+
+                }
+
+                Spacer(
+                    modifier = Modifier
+                        .height(12.dp)
+                )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "টোটাল",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight(700),
+                        color = darkTextColor,
+                    )
+                    Text(
+                        text = "৳২৫০০",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight(700),
+                        color = darkTextColor,
+                    )
+                }
+            }
+
+        }
+    }
+
+    @Composable
+    private fun ContinueButton(
+        mintColor: Color,
+        whiteColor: Color
+    ) {
+        Button(
+            shape = RoundedCornerShape(10.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = mintColor),
+            modifier = Modifier
+                .width(382.dp)
+                .height(56.dp),
+            onClick = { /*TODO*/ }
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(
+                    8.dp,
+                    Alignment.CenterHorizontally
+                ),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = "এগিয়ে যাও",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight(700),
+                    color = whiteColor,
+                    textAlign = TextAlign.Center,
+                )
+            }
+
         }
     }
 
