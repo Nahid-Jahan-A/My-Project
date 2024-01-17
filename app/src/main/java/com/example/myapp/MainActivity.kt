@@ -34,7 +34,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -69,7 +68,7 @@ class MainActivity : ComponentActivity() {
         val darkTextColor = Color(0xFF172B4D)
         val whiteColor = Color(0xFFFFFFFF)
         val strokeColor = Color(0xFFD0DBE5)
-        var refField by remember { mutableStateOf("") }
+        val refField by remember { mutableStateOf("") }
 
         Scaffold(
             topBar = {
@@ -129,13 +128,14 @@ class MainActivity : ComponentActivity() {
 
                 ReferralCard(strokeColor, whiteColor, refField, darkGreyTextColor)
 
-                TotalCost(darkGreyTextColor, mintColor, strokeColor, darkTextColor)
+                TotalCostCard(darkGreyTextColor, mintColor, strokeColor, darkTextColor)
 
                 ContinueButton(mintColor, whiteColor)
 
             }
         }
     }
+
 
     @Composable
     private fun CoverCard(
@@ -270,7 +270,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun TotalCost(
+    private fun TotalCostCard(
         darkGreyTextColor: Color,
         mintColor: Color,
         strokeColor: Color,
